@@ -1,0 +1,15 @@
+Options -Indexes
+
+AddType application/x-httpd-php .htm .html
+
+RewriteEngine on
+
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+
+ErrorDocument 404 /argon-dashboard-master/404.html
+ErrorDocument 403 /404.html
